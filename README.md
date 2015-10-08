@@ -5,7 +5,7 @@ With JQuery Plugin JSON-to-menu, you can create a Multilevel Menu like an Unorde
 #### HTML Code
 ```
 <div class="col-md-4">
-  <div class="" id="container_id"></div>
+  <div id="container_id"></div>
 </div>
 ```
 #### Javascript Code
