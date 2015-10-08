@@ -22,3 +22,4 @@ $(document).ready(function(){
 });
 
 ```
+#### More examples... Coming soon
