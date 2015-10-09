@@ -1,7 +1,7 @@
 # JSON-to-Menu
 With JQuery Plugin JSON-to-menu, you can create a Multilevel Menu like an Unordered List or an Indented Select (AKA Dropdown, ComboBox, ListBox) from a JSON String. 
 # How to use
-## Format Indented Select
+## Format: Indented Select
 #### HTML Code
 ```
 <div class="col-md-4">
@@ -32,7 +32,7 @@ You need a JSON string with this data:
 "icon": "",
 "target": "",
 "alt": "",
-children: 
+"children": 
  [
  
  ]
