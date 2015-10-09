@@ -22,4 +22,37 @@ $(document).ready(function(){
 });
 
 ```
-#### More examples... Coming soon
+## Format: Unordered List
+You need a JSON string with this data:
+```
+[
+{
+"href": "",
+"text": "",
+"icon": "",
+"target": "",
+"alt": "",
+children: 
+ [
+ 
+ ]
+}
+]
+```
+#### HTML Code
+```
+<div class="col-md-4">
+  <div id="container_id"></div>
+</div>
+```
+#### Javascript Code
+```
+$(document).ready(function(){
+    $('#container_id').jsontomenu({
+        data: str_json, 
+        type: 'vertical', 
+        title: 'Main Menu',
+        active: '//davicotico.com'
+    });
+});
+```
