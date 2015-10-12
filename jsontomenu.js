@@ -13,7 +13,7 @@
 			data: null,
 			active: window.location.href,
 			title: '',
-			type: 'vertical'
+			type: 'list'
 		}, options);
 		try {
 			var objJson = jQuery.parseJSON(settings.data);
@@ -22,12 +22,12 @@
 		}
 		if(objJson!==null){
 			switch (settings.type){
-				case 'vertical' : 
+				case 'list' : 
 					var result = create_vmenu(objJson, settings.active);
 					this.append(result);
 					jQuery('li.active').parents('.treeview').addClass('active');
 					break;
-				case 'fillselect' :
+				case 'fill_select' :
 					var result = fill_select(objJson, settings.active);
 					this.append(result);
 					break;
