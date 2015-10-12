@@ -22,7 +22,26 @@ $(document).ready(function(){
 });
 
 ```
-## 1.2. Format: Unordered List
+## 1.2. Format: Indented Select (Only fill the Select)
+#### HTML Code
+```
+<div class="col-md-4">
+  <select id="select_id" class="form-control"></select>
+</div>
+```
+#### Javascript Code
+```
+$(document).ready(function(){
+    $('#container_id').jsontomenu({
+        data: str_json, 
+        type: 'fill_select', 
+        title: '-Select an Option-',
+        active: '//davicotico.com'
+    });
+});
+
+```
+## 1.3. Format: Unordered List
 You need a JSON string with this data:
 ```
 [
@@ -50,7 +69,7 @@ You need a JSON string with this data:
 $(document).ready(function(){
     $('#container_id').jsontomenu({
         data: str_json, 
-        type: 'vertical', 
+        type: 'list', 
         title: 'Main Menu',
         active: '//davicotico.com'
     });
