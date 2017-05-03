@@ -22,7 +22,7 @@ $(document).ready(function(){
 });
 
 ```
-## 1.2. Indented Select (Only fill the Select)
+## 1.2. Indented Select (Populate the Select)
 #### HTML Code
 ```html
 <div class="col-md-4">
