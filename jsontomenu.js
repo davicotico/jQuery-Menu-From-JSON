@@ -117,6 +117,48 @@
 			}
 			return y;
 		}
+		/**
+    * @param {array} arrayItem Object Array
+    * @param {int} depth Depth sub-menu
+    * @return {object} jQuery Object
+    * */
+    function createMenu(arrayItem, depth){
+        var level = (typeof(depth)==='undefined') ? 0 : depth;
+        var $elem;
+        if (level === 0){
+            $elem = $('<ul>').addClass('root').addClass('sortableLists list-group');
+        } else{
+            $elem = $('<ul>');
+        }
+        $.each(arrayItem, function(k, v){
+            var isParent = (typeof(v.children) !== "undefined") && ($.isArray(v.children));
+            var $li = $('<li>');
+            $li.attr('id', v.text);
+            $li.addClass('list-group-item').data('text', v.text).data('icon', v.icon);
+            var $div = $('<div>');
+            var $i = $('<i>').addClass('fa '+v.icon);
+            var $span = $('<span>').addClass('text').append(v.text);
+            var $divbtn = $('<div>').addClass('btn-group pull-right');
+            var $btnEdit = TButton({classCss: 'btn btn-default btn-xs btnEdit', text: 'E'});
+            var $btnRemv = TButton({classCss: 'btn btn-danger btn-xs btnRemove', text: settings.text});
+            $divbtn.append($btnEdit).append($btnRemv);
+            $div.append($i).append($span).append($divbtn);
+            $li.append($div);
+            if (isParent){
+                $li.append(createMenu(v.children, level+1));
+            }
+            $elem.append($li);
+        });
+        return $elem;
+    }
+		/*
+		var data =jQuery.parseJSON(strJson);
+        
+        $("#view").append(createMenu(data, 0));
+        $('#btnTest').click(function(){
+            alert($('#Opcion2').data('icon'));
+        });
+		*/
 		
 	};
 }(jQuery));
