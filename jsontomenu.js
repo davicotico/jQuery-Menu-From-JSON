@@ -1,8 +1,9 @@
 /**
+* DEPRECATED
 * Jquery Multilevel Menu from JSON String
 * 2017 - youtube.com/user/davicotico
 * @autor David Ticona Saravia
-* @version 1.0
+* @version 0.0
 * @abstract Create Multilevel Menu from JSON String.
 * Formats availables: Vertical menu(Unordered list), Horizontal menu(Unorder list) and Select (Combobox)
 * 
