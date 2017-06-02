@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Render Menu - Demo 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <style>
+            .ui-menu {
+                width: 200px;
+            }
+            .active > a{ color:yellow}
+        </style>
+        <script src="renderMenu.js"></script>
+    </head>
+    <body>
+        <h2>menuList() With jQuery UI</h2>
+        <h3>Input</h3>
+        <div style="max-width: 500px;">[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]
+        </div>
+        <h3>Output</h3>
+        <button id="tojqueryui" type="button">Render Menu</button>
+        <div id="container">
+        </div>
+        <h2>menuSelect() Using a input select</h2>
+        <script>
+            $(document).ready(function () {
+                $('#tojqueryui').click(function () {
+                    var strJson = '[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]';
+                    var $menu = $('#container').menuList({data: strJson, active: '#1'});
+                    $menu.menu();
+                });
+                var strJson2 = '[{ "value": "//github.com/davicotico", "text": "First item"}, { "value": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "value": "//github.com", "text": "Books", "children": [ { "value": "#", "text": "Jquery" }, { "value": "#", "text": "Codeigniter" }, { "value": "#", "text": "Wordpress" } ] }, { "value": "#", "text": "Software" } ] }, { "value": "#", "text": "Sites", "children": [ { "value": "//codeignitertutoriales.com", "text": "My Blog" }, { "value": "#", "text": "GitHub" } ] }, { "value": "//github.com/davicotico", "text": "Last item"} ]';
+                var $select = $('body').menuSelect({data: strJson2, id: 'cmb1', name: 'cmb1', title: '-Select an Option-', group: true});
+                $select.change(function () {
+                    alert($(this).find('option:selected').text());
+                });
+            });
+        </script>
+    </body>
+</html>
