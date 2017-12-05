@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Render Menu - Demo 4</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.css">
         <link rel="stylesheet" href="http://mm.onokumus.com/css/mm-vertical.css" />
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -28,14 +28,14 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="../js/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="renderMenu.js"></script>
-        <script src="//cdn.jsdelivr.net/jquery.metismenu/2.7.0/metisMenu.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.js"></script>
         <script>
             $(document).ready(function () {
-                var strJson = '[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]';
-                var $menu = $('#menu1').menuList({data: strJson, active: '#1', aParentClass: "has-arrow"});
+                var json = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
+                var $menu = $('#menu1').menuList({data: json, active: 'sites.com', aParentClass: "has-arrow"});
                 $menu.metisMenu();
             });
         </script>
