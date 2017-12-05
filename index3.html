@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>menuList by Davicotico</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Render Menu - Demo 3</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="sm/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <script src = "../js/jquery.min.js"></script>
+        <!-- SmartMenus jQuery plugin -->
+        <script src="sm/jquery.smartmenus.min.js" type="text/javascript"></script>
+        <script src="renderMenu.js"></script>
+        <!-- SmartMenus core CSS (required) -->
+        <link href='sm/css/sm-core-css.css' rel='stylesheet' type='text/css' />
+        <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+        <link href='sm/css/sm-blue/sm-blue.css' rel='stylesheet' type='text/css' />
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -14,63 +19,15 @@
         <![endif]-->
     </head>
     <body>
-        <!-- Navbar fixed top -->
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">renderMenu</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <!-- Left nav -->
-                    <ul id="menu1" class="nav navbar-nav">
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div><!--/.container -->
+        <div>
+            <ul id="myMenu" class="sm sm-blue"></ul>
         </div>
-        <div class="container" style="margin-top:70px;">
-            <h2>Quick customization</h2>
-            <p>Renderize a menu list from Json String.</p>
-            <a href="index.html">&laquo; Back to main demo</a>
-        </div> <!-- /container -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Parameters</h3>
-                    <table class="table">
-                        <thead>
-                            <tr><th>Config</th><th>Type</th><th>Default</th><th>Description</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>data</td><td>String</td><td>''</td><td>Json String</td></tr>
-                            <tr><td>id</td><td>String</td><td>null</td><td>Id for the ul tag</td></tr>
-                            <tr><td>class</td><td>String</td><td>''</td><td>Class for the main ul tag</td></tr>
-                            <tr><td>active</td><td>String</td><td>window.location.href</td><td>Current URL</td></tr>
-                            <tr><td>ulParentClass</td><td>String</td><td>''</td><td>Css Class for ul tag (with submenu)</td></tr>
-                            <tr><td>aParentClass</td><td>String</td><td>null</td><td>Css Class for a tag (with submenu)</td></tr>
-                            <tr><td>dropdownIcon</td><td>String</td><td>null</td><td>Html code for dropdown icon</td></tr>
-                            <tr><td>title</td><td>String</td><td>''</td><td>Optional title (first item list without link)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="sm/jquery.smartmenus.min.js"></script>
-        <script src="renderMenu.js"></script>
-        <script type="text/javascript" src="sm/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
+        <h3>With Smartmenus</h3>
         <script>
             $(document).ready(function () {
-                var strJson = '[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "http://codeigniterturoriales.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]';
-                $('#menu1').menuList({data: strJson, active: 'http://codeigniterturoriales.com', ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
-                jQuery.SmartMenus.Bootstrap.init();
+                var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
+                var $menu = $('#myMenu').menuList({data: items});
+                $menu.smartmenus();
             });
         </script>
     </body>
