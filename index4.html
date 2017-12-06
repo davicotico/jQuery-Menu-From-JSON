@@ -19,8 +19,7 @@
             <div class="row">
                 <aside class="col-md-3">
                     <nav class="sidebar-nav">
-                        <ul id="menu1" class="metismenu">
-                        </ul>
+                        <ul id="myMenu"></ul>
                     </nav>
                 </aside>
                 <div class="col-md-9">
@@ -35,7 +34,7 @@
         <script>
             $(document).ready(function () {
                 var json = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                var $menu = $('#menu1').menuList({data: json, active: 'sites.com', aParentClass: "has-arrow"});
+                var $menu = $('#myMenu').menuList({data: json, active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
                 $menu.metisMenu();
             });
         </script>
