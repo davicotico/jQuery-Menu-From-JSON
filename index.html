@@ -30,13 +30,13 @@
         <select id="mySelect" name="mySelect"></select>
         <script>
             $(document).ready(function () {
+                var items = [ { "href": "#1", "text": "Products111", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
                 $('#tojqueryui').click(function () {
-                    var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
                     var $menu = $('#myMenu').menuList({data: items, active: '#1'});
                     $menu.menu();
                 });
-                var strJson2 = '[{ "value": "//github.com/davicotico", "text": "First item"}, { "value": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "value": "//github.com", "text": "Books", "children": [ { "value": "#", "text": "Jquery" }, { "value": "#", "text": "Codeigniter" }, { "value": "#", "text": "Wordpress" } ] }, { "value": "#", "text": "Software" } ] }, { "value": "#", "text": "Sites", "children": [ { "value": "//codeignitertutoriales.com", "text": "My Blog" }, { "value": "#", "text": "GitHub" } ] }, { "value": "//github.com/davicotico", "text": "Last item"} ]';
-                var $select = $('#mySelect').menuSelect({data: strJson2, title: '-Select an Option-', group: true});
+                //var strJson2 = '[{ "value": "//github.com/davicotico", "text": "First item"}, { "value": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "value": "//github.com", "text": "Books", "children": [ { "value": "#", "text": "Jquery" }, { "value": "#", "text": "Codeigniter" }, { "value": "#", "text": "Wordpress" } ] }, { "value": "#", "text": "Software" } ] }, { "value": "#", "text": "Sites", "children": [ { "value": "//codeignitertutoriales.com", "text": "My Blog" }, { "value": "#", "text": "GitHub" } ] }, { "value": "//github.com/davicotico", "text": "Last item"} ]';
+                var $select = $('#mySelect').menuSelect({data: items, title: '-Select an Option-', group: false, propertyValue: 'href'});
                 $select.change(function () {
                     alert($(this).find('option:selected').text());
                 });
