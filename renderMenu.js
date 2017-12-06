@@ -22,13 +22,15 @@
         }
         return y;
     }
+    
     $.fn.menuSelect = function (options) {
         var settings = $.extend({
             data: null,
             active: window.location.href,
             title: '',
             group: false,
-            bullet: '- '
+            bullet: '- ',
+            propertyValue: 'value'
         }, options);
         var arrJson = settings.data;
         if (typeof settings.data === 'string') {
@@ -55,13 +57,13 @@
             $.each(arrayItem, function (k, v) {
                 var isParent = ((typeof (v.children) !== "undefined") && ($.isArray(v.children)));
                 var $opt = $('<option>');
-                if (active === v.value) {
+                var value = v[settings.propValue];
+                if (active === value) {
                     $opt.addClass('active').prop('selected', true);
                 }
                 var bullet = (level === 0) ? '' : settings.bullet;
                 if ((!settings.group) || ((level === 0) && (!isParent))) {
-                    console.log(k + '::: isParent:' + isParent + ', Level:' + level + ', group:' + settings.group);
-                    $opt.val(v.value).append(str_repeat('&nbsp;', level)).append(bullet + v.text);
+                    $opt.val(value).append(str_repeat('&nbsp;', level)).append(bullet + v.text);
                     $element.append($opt);
                 }
                 if (isParent) {
@@ -76,7 +78,7 @@
         function createGroup(jqContainer, title, items) {
             var $group = $('<optgroup>').attr('label', title);
             $.each(items, function (k, v) {
-                var $opt = $('<option>');
+                let $opt = $('<option>');
                 $opt.val(v.value).append(settings.bullet + v.text);
                 $group.append($opt);
             });
