@@ -20,13 +20,13 @@
     </head>
     <body>
         <div>
-            <ul id="myMenu" class="sm sm-blue"></ul>
+            <ul id="myMenu"></ul>
         </div>
         <h3>With Smartmenus</h3>
         <script>
             $(document).ready(function () {
                 var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                var $menu = $('#myMenu').menuList({data: items});
+                var $menu = $('#myMenu').menuList({data: items, rootClass: "sm sm-blue"});
                 $menu.smartmenus();
             });
         </script>
