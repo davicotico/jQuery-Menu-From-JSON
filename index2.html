@@ -27,8 +27,7 @@
                     <a class="navbar-brand" href="#">renderMenu</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul id="menu1" class="nav navbar-nav">
-                    </ul>
+                    <ul id="menu1"></ul>
                 </div>
             </div>
         </div>
@@ -64,7 +63,7 @@
         <script>
             $(document).ready(function () {
                 var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "http://codeigniterturoriales.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                $('#menu1').menuList({data: items, active: 'http://codeigniterturoriales.com', ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
+                $('#menu1').menuList({data: items, active: 'http://codeigniterturoriales.com', rootClass: "nav navbar-nav", ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
                 jQuery.SmartMenus.Bootstrap.init();
             });
         </script>
