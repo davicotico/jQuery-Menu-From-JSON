@@ -90,6 +90,7 @@
         var settings = $.extend({
             data: null,
             active: window.location.href,
+            rootClass: '',
             ulParentClass: '',
             aParentClass: '',
             dropdownIcon: null
@@ -102,7 +103,7 @@
                 return null;
             }
         }
-
+        this.addClass(settings.rootClass);
         if (this.prop('tagName') === 'UL') {
             renderMenu(this, arrJson, settings.active);
             return this;
