@@ -52,7 +52,7 @@
             $.each(arrayItem, function (k, v) {
                 var isParent = ((typeof (v.children) !== "undefined") && ($.isArray(v.children)));
                 var $opt = $('<option>');
-                var value = v[settings.propValue];
+                var value = v[settings.propertyValue];
                 if (active === value) {
                     $opt.addClass('active').prop('selected', true);
                 }
