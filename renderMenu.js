@@ -1,9 +1,9 @@
 /**
- * Jquery Multilevel Menu from JSON String
- * @autor David Ticona Saravia
+ * Create Multilevel Menu from JSON String.
+ * Unordered list and Select (Combobox)
+ * @autor David Ticona Saravia <david.ticona.saravia@gmail.com>
  * @version 1.0
- * @abstract Create Multilevel Menu from JSON String.
- * Formats availables: Unordered list and Select (Combobox)
+ * @param {jQuery} $ 
  * 
  */
 (function ($) {
@@ -22,8 +22,7 @@
         }
         return y;
     }
-    
-    $.fn.menuSelect = function (options) {
+    $.fn.nestedSelect = function (options) {
         var settings = $.extend({
             data: null,
             active: window.location.href,
@@ -32,6 +31,9 @@
             bullet: '- ',
             propertyValue: 'value'
         }, options);
+        if (this.prop('tagName') !== 'SELECT') {
+            return null;
+        }
         var arrJson = settings.data;
         if (typeof settings.data === 'string') {
             try {
@@ -40,18 +42,12 @@
                 return null;
             }
         }
-        if (this.prop('tagName') === 'SELECT') {
-            if (settings.title !== '') {
-                let $opt = $('<option>').append(settings.title).val("");
-                this.append($opt);
-            }
-            fillSelect(this, arrJson, settings.active);
-            return this;
-        } else {
-            return null;
+        if (settings.title !== '') {
+            this.append($('<option>').append(settings.title).val(""));
         }
-
-        function fillSelect(jqContainer, arrayItem, active, level) {
+        populateSelect(this, arrJson, settings.active);
+        return this;
+        function populateSelect(jqContainer, arrayItem, active, level) {
             var $element = jqContainer;
             level = (typeof (level) === 'undefined') ? 0 : level;
             $.each(arrayItem, function (k, v) {
@@ -70,7 +66,7 @@
                     if ((settings.group)) {
                         createGroup($element, v.text, v.children);
                     } else {
-                        fillSelect(jqContainer, v.children, active, level + 2);
+                        populateSelect(jqContainer, v.children, active, level + 2);
                     }
                 }
             });
@@ -86,7 +82,7 @@
         }
     };
 
-    $.fn.menuList = function (options) {
+    $.fn.renderizeMenu = function (options) {
         var settings = $.extend({
             data: null,
             active: window.location.href,
@@ -96,6 +92,9 @@
             dropdownIcon: null
         }, options);
         var arrJson = settings.data;
+        if (this.prop('tagName') !== 'UL') {
+            return null;
+        }
         if (typeof settings.data === 'string') {
             try {
                 arrJson = JSON.parse(settings.data);
@@ -104,14 +103,9 @@
             }
         }
         this.addClass(settings.rootClass);
-        if (this.prop('tagName') === 'UL') {
-            renderMenu(this, arrJson, settings.active);
-            return this;
-        } else {
-            return null;
-        }
-
-        function renderMenu(jqContainer, arrayItem, active, depth) {
+        buildList(this, arrJson, settings.active);
+        return this;
+        function buildList(jqContainer, arrayItem, active, depth) {
             var level = (typeof (depth) === 'undefined') ? 0 : depth;
             var $elem;
             if (level === 0) {
@@ -120,13 +114,15 @@
                 $elem = $('<ul>').addClass(settings.ulParentClass);
             }
             $.each(arrayItem, function (k, v) {
-                var isParent = (typeof (v.children) !== "undefined") && ($.isArray(v.children));
-                var $li = $('<li>');
+                let isParent = (typeof (v.children) !== "undefined") && ($.isArray(v.children));
+                let $li = $('<li>');
                 $li.attr('id', v.text);
                 if (v.href === '#') {
                     v.href = 'javascript:void(0)';
                 }
                 var $a = $('<a>').attr('href', v.href);
+                if (v.hasOwnProperty('target'))
+                    $a.attr('target', v.target);
                 if (active === v.href) {
                     $li.addClass('active');
                 }
@@ -140,7 +136,7 @@
                 }
                 $li.append($a);
                 if (isParent) {
-                    $li.append(renderMenu(jqContainer, v.children, active, level + 1));
+                    $li.append(buildList(jqContainer, v.children, active, level + 1));
                 }
                 $elem.append($li);
             });
