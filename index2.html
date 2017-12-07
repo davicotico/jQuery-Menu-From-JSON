@@ -45,10 +45,10 @@
                             <tr><th>Config</th><th>Type</th><th>Default</th><th>Description</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>data</td><td>String</td><td>''</td><td>Json String</td></tr>
+                            <tr><td>data</td><td>String|Array</td><td>null</td><td>Json String</td></tr>
                             <tr><td>active</td><td>String</td><td>window.location.href</td><td>Current URL</td></tr>
-                            <tr><td>ulParentClass</td><td>String</td><td>''</td><td>Css Class for ul tag (with submenu)</td></tr>
-                            <tr><td>aParentClass</td><td>String</td><td>null</td><td>Css Class for a tag (with submenu)</td></tr>
+                            <tr><td>ulParentClass</td><td>String</td><td>''</td><td>Css Class for &lt;ul&gt; tag (with submenu)</td></tr>
+                            <tr><td>aParentClass</td><td>String</td><td>''</td><td>Css Class for &lt;a&gt; tag (with submenu)</td></tr>
                             <tr><td>dropdownIcon</td><td>String</td><td>null</td><td>Html code for dropdown icon</td></tr>
                         </tbody>
                     </table>
@@ -62,8 +62,8 @@
         <script type="text/javascript" src="sm/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
-                var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "http://codeigniterturoriales.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                $('#menu1').menuList({data: items, active: 'http://codeigniterturoriales.com', rootClass: "nav navbar-nav", ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
+                var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", target: "_blank", "children": [ { "href": "#", "text": "Jquery" }, { "href": "http://codeigniterturoriales.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
+                $('#menu1').renderizeMenu({data: items, active: 'http://codeigniterturoriales.com', rootClass: "nav navbar-nav", ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
                 jQuery.SmartMenus.Bootstrap.init();
             });
         </script>
