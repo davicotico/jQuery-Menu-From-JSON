@@ -22,9 +22,8 @@
         }
         return y;
     }
-    $.fn.nestedSelect = function (options) {
+    $.fn.nestedSelect = function (data, options) {
         var settings = $.extend({
-            data: null,
             active: window.location.href,
             title: '',
             group: false,
@@ -34,10 +33,10 @@
         if (this.prop('tagName') !== 'SELECT') {
             return null;
         }
-        var arrJson = settings.data;
-        if (typeof settings.data === 'string') {
+        var arrJson = data;
+        if (typeof data === 'string') {
             try {
-                arrJson = JSON.parse(settings.data);
+                arrJson = JSON.parse(data);
             } catch (e) {
                 return null;
             }
@@ -73,11 +72,10 @@
         }
         function createGroup(jqContainer, title, items) {
             var $group = $('<optgroup>').attr('label', title);
-            $.each(items, function (k, v) {
-                let $opt = $('<option>');
-                $opt.val(v.value).append(settings.bullet + v.text);
+            for (var i=0, len=items.length; i<len; i++){
+                let $opt = $('<option>').val(items[i].value).append(settings.bullet + items[i].text);
                 $group.append($opt);
-            });
+            }
             jqContainer.append($group);
         }
     };
