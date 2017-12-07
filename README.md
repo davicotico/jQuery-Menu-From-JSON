@@ -13,5 +13,5 @@ jQuery Plugin for create multilevel menus from a JSON String
 ```
 ```javascript
 var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                var $menu = $('#myMenu').renderizeMenu({data: items, active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
+var $menu = $('#myMenu').renderizeMenu({data: items, active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
 ```
