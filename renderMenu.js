@@ -82,22 +82,21 @@
         }
     };
 
-    $.fn.renderizeMenu = function (options) {
+    $.fn.renderizeMenu = function (data, options) {
         var settings = $.extend({
-            data: null,
             active: window.location.href,
             rootClass: '',
             ulParentClass: '',
             aParentClass: '',
             dropdownIcon: null
         }, options);
-        var arrJson = settings.data;
+        var arrJson = data;
         if (this.prop('tagName') !== 'UL') {
             return null;
         }
-        if (typeof settings.data === 'string') {
+        if (typeof data === 'string') {
             try {
-                arrJson = JSON.parse(settings.data);
+                arrJson = JSON.parse(data);
             } catch (e) {
                 return null;
             }
