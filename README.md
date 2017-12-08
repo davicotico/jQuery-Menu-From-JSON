@@ -14,7 +14,7 @@ jQuery Plugins for create multilevel menus and nested select From a JSON String
 ```
 
 # .renderizeMenu(data[, options])
-Create an unorder list with id attribute
+Create an unorder list with the id attribute
 ```html
     <ul id="myMenu"></ul>
 ```
@@ -26,11 +26,11 @@ var $menu = $('#myMenu').renderizeMenu(items);
 Setting the options and use it with another plugin.
 
 # .nestedSelect(data[, options])
-
+Create a select with the id attribute
 ```html
 <select id="mySelect" name="mySelect"></select>
 ```
-
+Renderize the select from a json string or array
 ```javascript
 var items = [{ "value": "//github.com/davicotico", "text": "First item"}, { "value": "#1", "text": "Products", "children": [ { "value": "//github.com", "text": "Books", "children": [ { "value": "#", "text": "Jquery" }, { "value": "#", "text": "Codeigniter" }, { "value": "#", "text": "Wordpress" } ] }, { "value": "#", "text": "Software" } ] }, { "value": "#", "text": "Sites", "children": [ { "value": "//codeignitertutoriales.com", "text": "My Blog" }, { "value": "#", "text": "GitHub" } ] }, { "value": "//github.com/davicotico", "text": "Last item"} ];
 var $select = $('#mySelect').nestedSelect(items, {title: '-Select an Option-'});
