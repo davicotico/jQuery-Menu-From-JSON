@@ -4,6 +4,15 @@ jQuery Plugins for create multilevel menus and nested select From a JSON String
 * .renderizeMenu
 * .nestedSelect
 
+## Requirements
+* jQuery >= 1.10
+
+## Usage
+```html
+<script src="jquery.min.js"></script>
+<script type="text/javascript" src="renderMenu.js"></script>
+```
+
 # .renderizeMenu(data[, options])
 
 ```html
