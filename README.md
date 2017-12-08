@@ -1,23 +1,20 @@
-# JSON to Menu
-jQuery Plugin for create multilevel menus from a JSON String
-## Features
-* Create a Multilevel Menu as Unordered List
-* Create a multilevel select (Indented)
+# jQuery Menu from JSON
+jQuery Plugins for create multilevel menus and nested select From a JSON String
+## Plugins
+* .renderizeMenu
+* .nestedSelect
 
 # .renderizeMenu(data[, options])
 
 ```html
-<aside class="col-md-3">
-    <nav class="sidebar-nav">
     <ul id="myMenu"></ul>
-    </nav>
-</aside>
 ```
 
 ```javascript
 var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-var $menu = $('#myMenu').renderizeMenu(items, {active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
+var $menu = $('#myMenu').renderizeMenu(items);
 ```
+
 # .nestedSelect(data[, options])
 
 ```html
