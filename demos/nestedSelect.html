@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nestedSelect by Davicotico</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
+    </head>
+    <body>
+        <h1>.nestedSelect()</h1>
+        <h3>Input</h3>
+        <textarea style="width: 650px;">[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]
+        </textarea>
+        <h3>Output</h3>
+        <select id="mySelect1" name="mySelect1"></select>
+        <h1>.nestedSelect() (Grouping)</h1>
+        <h3>Output</h3>
+        <select id="mySelect2" name="mySelect2"></select>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="renderMenu.js"></script>
+        <script>
+            $(document).ready(function () {
+                var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
+                var $select1 = $('#mySelect1').nestedSelect(items, {title: '-Select an Option-', propertyValue: 'href'});
+                $select1.change(function () {
+                    alert($(this).val());
+                });
+                var $select2 = $('#mySelect2').nestedSelect(items, {title: '-Select an Option-', group: true, propertyValue: 'href'});
+                $select2.change(function () {
+                    alert($(this).val());
+                });
+            });
+        </script>
+    </body>
+</html>
