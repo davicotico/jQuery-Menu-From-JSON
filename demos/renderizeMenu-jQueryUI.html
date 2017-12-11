@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Render Menu - Demo 1</title>
+        <title>renderizeMenu by Davicotico - w/jQuery-UI</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
         <link href="https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css" rel = "stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <script src="renderMenu.js"></script>
+        <script src="../renderMenu.js"></script>
         <style>
             .ui-menu {
-                width: 200px;
+                width: 180px;
             }
             .active > a{ color:yellow}
         </style>
     </head>
     <body>
-        <h2>menuList() With jQuery UI</h2>
+        <h1>menuList() With jQuery UI</h1>
         <h3>Input</h3>
         <textarea style="width: 650px;">[ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ]
         </textarea>
         <h3>Output</h3>
-        <button id="tojqueryui" type="button">Render Menu</button>
-        <div id="container">
+        <div style="width: 250px;">
             <ul id="myMenu"></ul>
         </div>
-        <h2>menuSelect() Using a input select</h2>
-        <select id="mySelect" name="mySelect"></select>
         <script>
             $(document).ready(function () {
                 var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                $('#tojqueryui').click(function () {
-                    var $menu = $('#myMenu').renderizeMenu({data: items, active: '#1'});
-                    $menu.menu();
-                });
-                //var strJson2 = '[{ "value": "//github.com/davicotico", "text": "First item"}, { "value": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "value": "//github.com", "text": "Books", "children": [ { "value": "#", "text": "Jquery" }, { "value": "#", "text": "Codeigniter" }, { "value": "#", "text": "Wordpress" } ] }, { "value": "#", "text": "Software" } ] }, { "value": "#", "text": "Sites", "children": [ { "value": "//codeignitertutoriales.com", "text": "My Blog" }, { "value": "#", "text": "GitHub" } ] }, { "value": "//github.com/davicotico", "text": "Last item"} ]';
-                var $select = $('#mySelect').nestedSelect({data: items, title: '-Select an Option-', group: false, propertyValue: 'href'});
-                $select.change(function () {
-                    alert($(this).find('option:selected').text());
-                });
+                var $menu = $('#myMenu').renderizeMenu(items, {active: '#1'});
+                $menu.menu();
             });
         </script>
     </body>

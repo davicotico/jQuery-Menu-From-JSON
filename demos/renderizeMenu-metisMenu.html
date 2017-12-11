@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Render Menu - Demo 4</title>
+        <title>renderizeMenu by Davicotico - w/metisMenu(Sidebar)</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.css">
         <link rel="stylesheet" href="http://mm.onokumus.com/css/mm-vertical.css" />
@@ -27,14 +27,14 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="renderMenu.js"></script>
+        <script src="../renderMenu.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.js"></script>
         <script>
             $(document).ready(function () {
                 var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                var $menu = $('#myMenu').renderizeMenu({data: items, active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
+                var $menu = $('#myMenu').renderizeMenu(items, {active: 'sites.com', rootClass: "metismenu", aParentClass: "has-arrow"});
                 $menu.metisMenu();
             });
         </script>

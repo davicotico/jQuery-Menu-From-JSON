@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Render Menu - Demo 3</title>
+        <title>renderizeMenu by Davicotico - w/Bootstrap 3 & Smartmenus </title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="sm/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+        <link href="../res/sm/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -55,15 +55,15 @@
                 </div>
             </div>
         </div>
-        <script src="../js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="renderMenu.js"></script>
-        <script type="text/javascript" src="sm/jquery.smartmenus.min.js"></script>
-        <script type="text/javascript" src="sm/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
+        <script src="../renderMenu.js"></script>
+        <script type="text/javascript" src="../res/sm/jquery.smartmenus.min.js"></script>
+        <script type="text/javascript" src="../res/sm/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
         <script>
             $(document).ready(function () {
                 var items = [ { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", target: "_blank", "children": [ { "href": "#", "text": "Jquery" }, { "href": "http://codeigniterturoriales.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                $('#menu1').renderizeMenu({data: items, active: 'http://codeigniterturoriales.com', rootClass: "nav navbar-nav", ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
+                $('#menu1').renderizeMenu(items, {active: 'http://codeigniterturoriales.com', rootClass: "nav navbar-nav", ulParentClass: "dropdown-menu", dropdownIcon: '<span class="caret"></span>'});
                 jQuery.SmartMenus.Bootstrap.init();
             });
         </script>
