@@ -73,7 +73,7 @@
         function createGroup(jqContainer, title, items) {
             var $group = $('<optgroup>').attr('label', title);
             for (var i=0, len=items.length; i<len; i++){
-                let $opt = $('<option>').val(items[i].value).append(settings.bullet + items[i].text);
+                var $opt = $('<option>').val(items[i].value).append(settings.bullet + items[i].text);
                 $group.append($opt);
             }
             jqContainer.append($group);
@@ -111,8 +111,8 @@
                 $elem = $('<ul>').addClass(settings.ulParentClass);
             }
             $.each(arrayItem, function (k, v) {
-                let isParent = (typeof (v.children) !== "undefined") && ($.isArray(v.children));
-                let $li = $('<li>');
+                var isParent = (typeof (v.children) !== "undefined") && ($.isArray(v.children));
+                var $li = $('<li>');
                 $li.attr('id', v.text);
                 if (v.href === '#') {
                     v.href = 'javascript:void(0)';
@@ -123,7 +123,7 @@
                 if (active === v.href) {
                     $li.addClass('active');
                 }
-                let $i = $('<i>').addClass(v.icon);
+                var $i = $('<i>').addClass(v.icon);
                 $a.append($i).append("&nbsp;").append(v.text);
                 if ((isParent) && (settings.dropdownIcon !== null)) {
                     $a.append('&nbsp;').append(settings.dropdownIcon);
