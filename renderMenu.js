@@ -75,13 +75,14 @@
                     };
                 }
                 var $li = $('<li>').setClass(_settings.itemClass);
-                $li.attr('id', v.text);
                 if ((v.href === '#') || (isParent)) {
                     v.href = 'javascript:void(0)';
                 }
                 var $a = $('<a>').attr('href', v.href).setClass(_settings.linkClass);
                 if (v.hasOwnProperty('target'))
                     $a.attr('target', v.target);
+                if (v.hasOwnProperty('title'))
+                    $a.attr('title', v.title);
                 if (active === v.href) {
                     $li.addClass('active');
                 }

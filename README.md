@@ -38,23 +38,3 @@ $select.change(function () {
     alert($(this).val());
 });
 ```
-
-### How it works
-```
-[root class="nav navbar-nav mr-auto"]
-    [item class="nav-item"][link="nav-link"] ... [/link][/item]
-    [item class="nav-item"][link="nav-link"] ... [/link][/item]
-    [itemHasMenu class="nav-item dropdown"]
-        [linkHasMenu class="nav-link dropdown-toggle"] ... [/linkHasMenu]
-            [menu class="dropdown-menu"]
-                [menuItem class=""][menuLink class="dropdown-item"] ... [/menuLink][/menuItem]
-                [menuItem class=""][menuLink class="dropdown-item"] ... [/menuLink][/menuItem]
-                [menuItemHasSubmenu class="dropdown"][menuLinkHasSubmenu class="dropdown-item dropdown-toggle"] ... [/menuLinkHasSubmenu]
-                    [submenu class="dropdown-menu"]
-                        [menuItem class=""][menuLink class="dropdown-item"] ... [/menuLink][/menuItem]
-                    [/submenu]
-                [/menuItemHasSubmenu]
-            [/menu]
-    [/itemHasMenu]
-[/root]
-```
