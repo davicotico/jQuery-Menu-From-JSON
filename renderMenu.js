@@ -13,6 +13,7 @@
     $.fn.renderizeMenu = function (data, options) {
         var settings = $.extend({
             active: window.location.href,
+            activeClass: 'active',
             rootClass: '',
             itemClass: null,
             linkClass: null,
@@ -84,7 +85,7 @@
                 if (v.hasOwnProperty('title'))
                     $a.attr('title', v.title);
                 if (active === v.href) {
-                    $li.addClass('active');
+                    $a.addClass(settings.activeClass);
                 }
                 var $i = $('<i>').addClass(v.icon);
                 $a.append($i).append("&nbsp;").append(v.text);

@@ -233,6 +233,7 @@ jQuery.SmartMenus.Bootstrap.init();
             $(document).ready(function () {
                 var mainmenu = [{"text":"Blog","href":"http://codeignitertutoriales.com","icon":"fas fa-home","target":"_blank","title":"My Blog"},{"text":"Demos","href":"#","icon":"fas fa-feather-alt","target":"_self","title":"Mor demos","children":[{"text":"Bootstrap 4","href":"renderizeMenu-Bootstrap4-sm.html","icon":"fas fa-angle-double-right","target":"_self","title":"Multilevel Bootstrap 4"},{"text":"Bootstrap 3","href":"renderizeMenu-Bootstrap3.html","icon":"fas fa-angle-double-right","target":"_self","title":"Using Bootstrap 3"},{"text":"Metismenu","href":"renderizeMenu-metisMenu.html","icon":"fas fa-angle-double-right","target":"_self","title":"Vertical menu"},{"text":"Smartmenus","href":"renderizeMenu-Smartmenus.html","icon":"fas fa-angle-double-right","target":"_self","title":"Vertical & horizontal menus"},{"text":"jQuery UI","icon":"fas fa-angle-double-right","href":"renderizeMenu-jQueryUI.html","target":"_self","title":"with jQuery UI"},{"text":"Nested select","icon":"fas fa-angle-double-right","href":"nestedSelect.html","target":"_self","title":"Create a combobox"}]}];
                 $('#mainmenu').renderizeMenu(mainmenu, {
+                    active: "nestedSelect.html",
                     rootClass: "nav navbar-nav mr-auto",
                     itemClass: 'nav-item',
                     linkClass: 'nav-link',
