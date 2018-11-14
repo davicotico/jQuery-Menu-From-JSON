@@ -51,7 +51,6 @@
     color: #adb5bd;
     outline-width: 0;
     transition: all .3s ease-out;
-
 }
 
 .sidebar-nav .metismenu ul a {
@@ -68,5 +67,4 @@
     color: #f8f9fa;
     text-decoration: none;
     background: #0b7285;
-    
 }

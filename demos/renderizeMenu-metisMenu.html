@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>renderizeMenu by Davicotico - w/metisMenu(Sidebar)</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.css">
-        <link rel="stylesheet" href="res/metismenu/mm-vertical.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+        <link rel="stylesheet" href="res/metismenu3/metisMenu.css">
+        <link rel="stylesheet" href="res/metismenu3/mm-vertical.css" />
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -23,31 +24,34 @@
                     </nav>
                 </aside>
                 <div class="col-md-9">
-                    <h1>With MetisMenu Plugin</h1>
-                    <h2>Demos</h2>
-                    <a href="renderizeMenu-jQueryUI.html" target="_blank" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-new-window"></i> With jQuery UI
-                    </a>
-                    <a href="renderizeMenu-Bootstrap3.html" target="_blank" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-new-window"></i> With Bootstrap 3 (Smartmenus)
-                    </a>
-                    <a href="renderizeMenu-Smartmenus.html" target="_blank" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-new-window"></i> With Smartmenus
-                    </a>
-                    <a href="https://github.com/onokumus/metismenu" target="_blank" class="btn btn-default">
-                        <i class="glyphicon glyphicon-new-window"></i> Metismenu by onokumus
-                    </a>
+                    <pre>
+// renderize
+var $menu = $('#myMenu').renderizeMenu(items, 
+    {
+    active: "nestedSelect.html", 
+    rootClass: "metismenu",
+    linkHasMenuClass: "has-arrow",
+    menuLinkHasSubmenuClass: "has-arrow"
+    });
+// call the plugin
+$menu.metisMenu();
+                    </pre>
                 </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="../renderMenu.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.1/metisMenu.min.js"></script>
+        <script src="res/metismenu3/metisMenu.min.js"></script>
         <script>
             $(document).ready(function () {
-                var items = [ { "href": "#1", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "codeigniter.com", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "sites.com", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-                var $menu = $('#myMenu').renderizeMenu(items, {active: 'sites.com', rootClass: "metismenu", linkHasMenuClass: "has-arrow"});
+                var items = [{"text":"Blog","href":"http://codeignitertutoriales.com","icon":"fas fa-home","target":"_blank","title":"My Blog"},{"text":"Demos","href":"#","icon":"fas fa-feather-alt","target":"_self","title":"Mor demos","children":[{"text":"Bootstrap 4","href":"renderizeMenu-Bootstrap4-sm.html","icon":"fas fa-angle-double-right","target":"_self","title":"Multilevel Bootstrap 4"},{"text":"Bootstrap 3","href":"renderizeMenu-Bootstrap3.html","icon":"fas fa-angle-double-right","target":"_self","title":"Using Bootstrap 3"},{"text":"Metismenu","href":"renderizeMenu-metisMenu.html","icon":"fas fa-angle-double-right","target":"_self","title":"Vertical menu"},{"text":"Smartmenus","href":"renderizeMenu-Smartmenus.html","icon":"fas fa-angle-double-right","target":"_self","title":"Vertical & horizontal menus"},{"text":"jQuery UI","icon":"fas fa-angle-double-right","href":"renderizeMenu-jQueryUI.html","target":"_self","title":"with jQuery UI"},{"text":"Nested select","icon":"fas fa-angle-double-right","href":"nestedSelect.html","target":"_self","title":"Create a combobox"}]}];
+                var $menu = $('#myMenu').renderizeMenu(items, 
+                {
+                    active: "nestedSelect.html", 
+                    rootClass: "metismenu",
+                    linkHasMenuClass: "has-arrow",
+                    menuLinkHasSubmenuClass: "has-arrow"
+                });
                 $menu.metisMenu();
             });
         </script>
