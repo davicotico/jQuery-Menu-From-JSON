@@ -18,8 +18,8 @@
         <div>
             <ul id="topMenu"></ul>
         </div>
-        <h1>With Smartmenus</h1>
-        <div style="width: 250px;">
+        <h1>Renderize on Smartmenus</h1>
+        <div style="width: 250px; margin-top: 80px;">
             <ul id="myMenu"></ul>
         </div>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -28,8 +28,7 @@
         <script src="../renderMenu.js"></script>
         <script>
             $(document).ready(function () {
-                var items = [ {"href": "codeignitertutoriales.com", "text": "Home", "icon": "fa fa-home"}, { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "//codeignitertutoriales.com", "text": "My Blog" }, { "href": "#", "text": "GitHub" } ] } ];
-
+                var items = [ {"href": "https://github.com/davicotico", "text": "Home", "icon": "fa fa-home"}, { "href": "#", "text": "Products", "icon": "fa fa-book", "children": [ { "href": "//github.com", "text": "Books", "children": [ { "href": "#", "text": "Jquery" }, { "href": "#", "text": "Codeigniter" }, { "href": "#", "text": "Wordpress" } ] }, { "href": "#", "text": "Software" } ] }, { "href": "#", "text": "Sites", "children": [ { "href": "https://twitter.com/davicodev", "text": "Twitter" }, { "href": "https://www.linkedin.com/in/david-ticona-saravia/", "text": "LinkedIn" }, { "href": "https://www.youtube.com/c/DavidTiconaSaravia", "text": "Youtube"} ] } ];
                 var $topMenu = $('#topMenu').renderizeMenu(items, {rootClass: "sm sm-blue"});
                 $topMenu.smartmenus();
                 
